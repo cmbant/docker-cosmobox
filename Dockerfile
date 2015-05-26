@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:15.04
 
 MAINTAINER Antony Lewis
 
@@ -10,5 +10,5 @@ RUN apt-get update \
      g++ \
      git \
      libmpc-dev \
- && apt-get clean 
+ && apt-get clean
 
