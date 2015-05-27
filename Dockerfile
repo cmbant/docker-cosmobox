@@ -7,6 +7,8 @@ RUN apt-get update \
  && apt-get install -y --no-install-recommends \
  texlive dvipng texlive-latex-extra texlive-fonts-recommended \
  python-pip \
+ python-dev \
+ python-numpy \
  python-matplotlib \
  python-scipy \
  cython \
@@ -18,14 +20,13 @@ RUN apt-get update \
 RUN pip install starcluster
 
 #Install cfitsio library for reading FITS files
-
 RUN oldpath=`pwd` && cd /tmp \
 && wget ftp://heasarc.gsfc.nasa.gov/software/fitsio/c/cfitsio_latest.tar.gz \
 && tar zxvf cfitsio_latest.tar.gz \
 && cd cfitsio \
 && ./configure --prefix=/usr \
 && make -j 2 \
-&& sudo make install \
+&& make install \
 && make clean \
 && cd $oldpath \
 && rm -Rf /tmp/cfitsio*

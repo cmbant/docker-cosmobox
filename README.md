@@ -1,13 +1,15 @@
 ### Overview
 
-This repository has the Dockerfile for source build of gcc 6 (experimental).
+Docker with source build of gcc/gfortran 6 (experimental), plus latex, python, cfitsio
+as needed for running building and running codes like CosmoMC, plotting and accessing astronomical data.
 
 Currently gcc 6 is required to run many Fortran 2003/2008 programs successfully due
 to bugs in earlier versions. Also includes standard openmpi and lapack libraries,
-plus basic build tools.
+plus basic build tools (inherited from small cmbant/docker-gcc-build image)
 
-Corresponding auto-build docker available at
-https://registry.hub.docker.com/u/cmbant/docker-gcc-build/
+GitHub: http://registry.hub.docker.com/u/cmbant/docker-cosmobox/
+DockerHub: http://registry.hub.docker.com/u/cmbant/cosmobox/
+
 
 ### Usage
 
