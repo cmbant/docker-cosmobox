@@ -1,14 +1,31 @@
-FROM ubuntu:15.04
+FROM cmbant/docker-gcc-build:latest
 
 MAINTAINER Antony Lewis
 
+#Install latex and python (skip pyside, assume only command line)
 RUN apt-get update \
- && apt-get install -y \
-     bison \
-     build-essential \
-     flex \
-     g++ \
-     git \
-     libmpc-dev \
+ && apt-get install -y --no-install-recommends \
+ texlive dvipng texlive-latex-extra texlive-fonts-recommended \
+ python-pip \
+ python-matplotlib \
+ python-scipy \
+ cython \
+ ipython \
+ python-pandas \
  && apt-get clean
 
+# In case want to run startcluster from here
+RUN pip install starcluster
+
+#Install cfitsio library for reading FITS files
+
+RUN oldpath=`pwd` && cd /tmp \
+&& wget ftp://heasarc.gsfc.nasa.gov/software/fitsio/c/cfitsio_latest.tar.gz \
+&& tar zxvf cfitsio_latest.tar.gz \
+&& cd cfitsio \
+&& ./configure --prefix=/usr \
+&& make -j 2 \
+&& sudo make install \
+&& make clean \
+&& cd $oldpath \
+&& rm -Rf /tmp/cfitsio*
