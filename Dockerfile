@@ -11,9 +11,10 @@ RUN apt-get update \
  python-numpy \
  python-matplotlib \
  python-scipy \
+ python-pandas \
  cython \
  ipython \
- python-pandas \
+ wget \
  && apt-get clean
 
 # In case want to run startcluster from here
