@@ -17,7 +17,7 @@ RUN apt-get update \
  wget \
  && apt-get clean
 
-# In case want to run startcluster from here
+# In case want to run starcluster from here
 #RUN pip install starcluster
 
 #Install cfitsio library for reading FITS files
