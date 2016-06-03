@@ -18,7 +18,7 @@ RUN apt-get update \
  && apt-get clean
 
 # In case want to run startcluster from here
-RUN pip install starcluster
+#RUN pip install starcluster
 
 #Install cfitsio library for reading FITS files
 RUN oldpath=`pwd` && cd /tmp \
@@ -30,4 +30,4 @@ RUN oldpath=`pwd` && cd /tmp \
 && make install \
 && make clean \
 && cd $oldpath \
-&& rm -Rf /tmp/cfitsio*
+&& rm -Rf /tmp/cfitsio* 
