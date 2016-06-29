@@ -7,6 +7,7 @@ RUN apt-get update \
  && apt-get install -y --no-install-recommends \
  texlive dvipng texlive-latex-extra texlive-fonts-recommended \
  python-pip \
+ python-setuptools \
  python-dev \
  python-numpy \
  python-matplotlib \
