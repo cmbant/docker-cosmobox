@@ -17,6 +17,7 @@ RUN apt-get update \
  cython \
  ipython \
  wget \
+ build-essential \
  && apt-get clean
 
 # In case want to run starcluster from here
