@@ -13,6 +13,7 @@ RUN apt-get update \
  python-matplotlib \
  python-scipy \
  python-pandas \
+ python-sympy \
  cython \
  ipython \
  wget \
