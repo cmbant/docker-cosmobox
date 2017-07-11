@@ -6,16 +6,6 @@ MAINTAINER Antony Lewis
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
  texlive dvipng texlive-latex-extra texlive-fonts-recommended \
-# python-pip \
-# python-setuptools \
-# python-dev \
-# python-numpy \
-# python-matplotlib \
-# python-scipy \
-# python-pandas \
-# python-sympy \
-# cython \
-# ipython \
  wget \
  build-essential \
  && apt-get clean
@@ -28,8 +18,10 @@ RUN apt-get update \
  && conda update -q conda \
  && conda info -a \
  && conda create -q -n cosmobox-environment python=2.7 atlas numpy scipy matplotlib pandas sympy cython ipython \
+ && bash -c 'echo "export PATH=$HOME/miniconda/bin:$PATH" >> $HOME/.bashrc'  \
  && bash -c 'echo "source activate cosmobox-environment" >> $HOME/.bashrc'  \
- && rm -f miniconda.sh
+ && rm -f miniconda.sh \
+ && conda clean -i -t -l -s -p
 
 # In case want to run starcluster from here
 #RUN pip install starcluster
