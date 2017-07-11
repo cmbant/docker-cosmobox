@@ -18,8 +18,8 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -
  && conda update -q conda \
  && conda info -a \
  && conda create -q -n cosmobox-environment python=2.7 atlas numpy scipy matplotlib pandas sympy cython ipython setuptools \
- && bash -c 'echo "export PATH=$HOME/miniconda/bin:$PATH" >> $HOME/.bashrc'  \
- && bash -c 'echo "source activate cosmobox-environment" >> $HOME/.bashrc'  \
+ && bash -c 'echo "export PATH=$HOME/miniconda/bin:$PATH" >> $HOME/.profile'  \
+ && bash -c 'echo "source activate cosmobox-environment" >> $HOME/.profile'  \
  && rm -f miniconda.sh \
  && conda clean -i -t -l -s -p
 
