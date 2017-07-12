@@ -1,4 +1,4 @@
-FROM cmbant/docker-gcc-build:latest
+FROM cmbant/docker-gcc-build:gcc6
 
 MAINTAINER Antony Lewis
 
@@ -20,7 +20,7 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -
  && conda info -a \
  && conda install --yes conda-build atlas mpi4py numpy scipy matplotlib pandas sympy cython ipython yaml \
  && conda clean --yes -i -t -l -s -p
- 
+
 
 # In case want to run starcluster from here
 #RUN pip install starcluster
