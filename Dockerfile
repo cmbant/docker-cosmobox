@@ -6,19 +6,20 @@ MAINTAINER Antony Lewis
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
  texlive dvipng texlive-latex-extra texlive-fonts-recommended \
- python-pip \
- python-setuptools \
- python-dev \
- python-numpy \
- python-matplotlib \
- python-scipy \
- python-pandas \
- python-sympy \
- cython \
- ipython \
  wget \
  build-essential \
  && apt-get clean
+
+ENV PATH="/opt/conda/bin:${PATH}"
+CMD [ "/bin/bash" ]
+
+RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh \
+ && bash miniconda.sh -b -p /opt/conda \
+ && rm -f miniconda.sh \
+ && /opt/conda/bin/conda install --yes conda \
+ && conda info -a \
+ && conda install --yes conda-build atlas mpi4py numpy scipy matplotlib pandas sympy cython ipython yaml \
+ && conda clean --yes -i -t -l -s -p
 
 # In case want to run starcluster from here
 #RUN pip install starcluster
