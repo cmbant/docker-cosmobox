@@ -10,18 +10,16 @@ RUN apt-get update \
  build-essential \
  && apt-get clean
 
-ENV PATH="$HOME/miniconda/bin:$HOME/miniconda/envs/cosmobox-environment/bin:${PATH}"
+ENV PATH="/opt/conda/bin:${PATH}"
+CMD [ "/bin/bash" ]
 
 RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh \
- && bash miniconda.sh -b -p $HOME/miniconda \
- && hash -r \
- && conda config --set always_yes yes --set changeps1 no \
- && conda update -q conda \
- && conda info -a \
- && conda create -q -n cosmobox-environment python=2.7 atlas numpy scipy matplotlib pandas sympy cython ipython setuptools \
- && . activate cosmobox-environment \
+ && bash miniconda.sh -b -p /opt/conda \
  && rm -f miniconda.sh \
- && conda clean -i -t -l -s -p
+ && /opt/conda/bin/conda install --yes conda && \
+ && conda info -a \
+ && conda install --yes conda-build atlas numpy scipy matplotlib pandas sympy cython ipython
+ && conda clean --yes -i -t -l -s -p
  
 
 # In case want to run starcluster from here
