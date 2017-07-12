@@ -4,7 +4,7 @@ MAINTAINER Antony Lewis
 
 #Install latex and python (skip pyside, assume only command line)
 RUN apt-get update \
- && apt-get install -y --no-install-recommends \
+ apt-get install -y --no-install-recommends \
  texlive dvipng texlive-latex-extra texlive-fonts-recommended \
  wget \
  build-essential \
@@ -16,7 +16,7 @@ CMD [ "/bin/bash" ]
 RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh \
  && bash miniconda.sh -b -p /opt/conda \
  && rm -f miniconda.sh \
- && /opt/conda/bin/conda install --yes conda && \
+ && /opt/conda/bin/conda install --yes conda \
  && conda info -a \
  && conda install --yes conda-build atlas numpy scipy matplotlib pandas sympy cython ipython
  && conda clean --yes -i -t -l -s -p
