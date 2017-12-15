@@ -2,10 +2,12 @@ FROM cmbant/docker-gcc-build:latest
 
 MAINTAINER Antony Lewis
 
+#Python 3 config, including Jupyter for serving notebooks
+
 #Install latex and python (skip pyside, assume only command line)
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
- texlive dvipng texlive-latex-extra texlive-fonts-recommended \
+ texlive dvipng texlive-latex-extra texlive-xetex texlive-fonts-recommended \
  wget \
  build-essential \
  && apt-get clean
