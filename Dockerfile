@@ -18,7 +18,7 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -
  && rm -f miniconda.sh \
  && /opt/conda/bin/conda install --yes conda \
  && conda info -a \
- && conda install --yes conda-build atlas numpy scipy matplotlib pandas sympy cython ipython-notebook yaml \
+ && conda install --yes conda-build atlas numpy scipy matplotlib pandas sympy cython jupyter yaml \
  && conda clean --yes -i -t -l -s -p
 
 
