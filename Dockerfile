@@ -1,4 +1,4 @@
-FROM cmbant/docker-gcc-build:gcc6
+FROM cmbant/docker-gcc-build:gcc7
 
 MAINTAINER Antony Lewis
 
