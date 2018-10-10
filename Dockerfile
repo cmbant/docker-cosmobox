@@ -18,7 +18,7 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -
  && rm -f miniconda.sh \
  && /opt/conda/bin/conda install --yes conda \
  && conda info -a \
- && conda install --yes conda-build atlas numpy scipy matplotlib pandas sympy cython ipython yaml \
+ && conda install --yes -c conda-forge conda-build atlas numpy scipy matplotlib pandas sympy cython ipython yaml \
  && conda clean --yes -i -t -l -s -p
 
 
@@ -27,8 +27,8 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -
 
 #Install cfitsio library for reading FITS files
 RUN oldpath=`pwd` && cd /tmp \
-&& wget ftp://heasarc.gsfc.nasa.gov/software/fitsio/c/cfitsio_latest.tar.gz \
-&& tar zxvf cfitsio_latest.tar.gz \
+&& wget ftp://heasarc.gsfc.nasa.gov/software/fitsio/c/cfitsio3280.tar.gz \
+&& tar zxvf cfitsio3280.tar.gz \
 && cd cfitsio \
 && ./configure --prefix=/usr \
 && make -j 2 \
