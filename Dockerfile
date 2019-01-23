@@ -19,7 +19,8 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -
  && /opt/conda/bin/conda install --yes conda \
  && conda info -a \
  && conda install --yes conda-build atlas mpi4py numpy scipy matplotlib pandas sympy cython ipython yaml \
- && conda clean --yes -i -t -l -s -p
+ && conda clean --yes -i -t -l -s -p \
+ && ln -s /usr/local/bin/gfortran /usr/local/bin/f95
 
 # In case want to run starcluster from here
 #RUN pip install starcluster
