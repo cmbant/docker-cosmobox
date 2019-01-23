@@ -2,12 +2,12 @@ FROM cmbant/docker-gcc-build:devel
 
 MAINTAINER Antony Lewis
 
+
 #Install latex and python (skip pyside, assume only command line)
 RUN apt-get update \
+ && apt-get install -y --no-install-recommends apt-utils \
  && apt-get install -y --no-install-recommends \
  texlive dvipng texlive-latex-extra texlive-fonts-recommended \
- wget \
- build-essential \
  && apt-get clean
 
 ENV PATH="/opt/conda/bin:${PATH}"
