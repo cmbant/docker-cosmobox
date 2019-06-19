@@ -29,7 +29,8 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -
 RUN oldpath=`pwd` && cd /tmp \
 && wget ftp://heasarc.gsfc.nasa.gov/software/fitsio/c/cfitsio_latest.tar.gz \
 && tar zxvf cfitsio_latest.tar.gz \
-&& cd cfitsio \
+&& rm -f cfitsio_latest.tar.gz \ 
+&& cd cfitsio* \
 && ./configure --prefix=/usr \
 && make -j 2 \
 && make install \
