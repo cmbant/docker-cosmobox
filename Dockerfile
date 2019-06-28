@@ -18,7 +18,7 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -
  && rm -f miniconda.sh \
  && /opt/conda/bin/conda install --yes conda \
  && conda info -a \
- && conda install --yes conda-build atlas numpy scipy matplotlib pandas sympy cython ipython yaml \
+ && conda install --yes conda-build numpy scipy matplotlib pandas sympy cython ipython yaml \
  && conda clean --yes -i -t -l -s -p
 
 
@@ -29,7 +29,7 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -
 RUN oldpath=`pwd` && cd /tmp \
 && wget ftp://heasarc.gsfc.nasa.gov/software/fitsio/c/cfitsio_latest.tar.gz \
 && tar zxvf cfitsio_latest.tar.gz \
-&& cd cfitsio \
+&& cd cfitsio* \
 && ./configure --prefix=/usr \
 && make -j 2 \
 && make install \
