@@ -13,12 +13,12 @@ RUN apt-get update \
 ENV PATH="/opt/conda/bin:${PATH}"
 CMD [ "/bin/bash" ]
 
-RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh \
+RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh \
  && bash miniconda.sh -b -p /opt/conda \
  && rm -f miniconda.sh \
  && /opt/conda/bin/conda install --yes conda \
  && conda info -a \
- && conda install --yes conda-build numpy scipy matplotlib pandas sympy cython ipython yaml \
+ && conda install --yes scipy matplotlib pandas sympy cython ipython jupyter PyYAML packaging
  && conda clean --yes -i -t -l -s -p
 
 
