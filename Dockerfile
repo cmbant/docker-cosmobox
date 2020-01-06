@@ -1,2 +1,2 @@
-FROM cmbant/cosmobox:gcc8
+FROM cmbant/cosmobox:gcc9
 
