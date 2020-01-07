@@ -1,6 +1,6 @@
 ### Overview
 
-Docker with source build of the latest gcc/gfortran, plus latex, python, cfitsio
+Docker with source build of the latest gcc/gfortran, plus latex, python 3, cfitsio
 as needed for running building and running codes like CosmoMC, plotting and accessing astronomical data.
 
 Currently gcc 6+ is required to run many Fortran 2003/2008 programs successfully due
