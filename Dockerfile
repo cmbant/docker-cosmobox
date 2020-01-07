@@ -19,7 +19,7 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -
  && /opt/conda/bin/conda install --yes conda \
  && conda info -a \
  && conda install --yes scipy matplotlib pandas sympy cython ipython jupyter PyYAML packaging \
- && conda clean --yes -i -t -l -s -p
+ && conda clean --yes -i -t -s -p
 
 
 # In case want to run starcluster from here
