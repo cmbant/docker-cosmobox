@@ -11,7 +11,6 @@ RUN apt-get update \
  && apt-get clean
 
 ENV PATH="/opt/conda/bin:${PATH}"
-CMD [ "/bin/bash" ]
 
 RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh \
  && bash miniconda.sh -b -p /opt/conda \
@@ -33,3 +32,5 @@ RUN oldpath=`pwd` && cd /tmp \
 && make clean \
 && cd $oldpath \
 && rm -Rf /tmp/cfitsio* 
+
+CMD [ "/bin/bash" ]
