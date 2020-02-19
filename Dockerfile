@@ -2,6 +2,9 @@ FROM cmbant/docker-gcc-build:devel
 
 MAINTAINER Antony Lewis
 
+LABEL org.label-schema.name="cosmobox" \
+      org.label-schema.url="https://github.com/cmbant/docker-cosmobox/tree/$SOURCE_BRANCH" \
+      org.label-schema.version="$SOURCE_COMMIT" 
 
 #Install latex and python (skip pyside, assume only command line)
 RUN apt-get update \
@@ -32,5 +35,6 @@ RUN oldpath=`pwd` && cd /tmp \
 && make clean \
 && cd $oldpath \
 && rm -Rf /tmp/cfitsio* 
+
 
 CMD [ "/bin/bash" ]
