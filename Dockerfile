@@ -1,10 +1,15 @@
-FROM cmbant/docker-gcc-build:devel
+ARG IMAGE_NAME
+ARG SOURCE_BRANCH
+ARG SOURCE_COMMIT
+
+FROM cmbant/docker-gcc-build:$SOURCE_BRANCH
 
 MAINTAINER Antony Lewis
 
 LABEL org.label-schema.name="cosmobox" \
       org.label-schema.url="https://github.com/cmbant/docker-cosmobox/tree/$SOURCE_BRANCH" \
-      org.label-schema.version="$SOURCE_COMMIT" 
+      org.label-schema.version="$SOURCE_COMMIT" \
+      org.label-schema.docker.cmd="docker run -v $(pwd):/virtual/path -i -t $IMAGE_NAME /bin/bash"
 
 #Install latex and python (skip pyside, assume only command line)
 RUN apt-get update \
