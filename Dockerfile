@@ -2,7 +2,7 @@ ARG IMAGE_NAME
 ARG SOURCE_BRANCH
 ARG SOURCE_COMMIT
 
-FROM cmbant/docker-gcc-build:$SOURCE_BRANCH
+FROM cmbant/docker-gcc-build:devel
 
 MAINTAINER Antony Lewis
 
